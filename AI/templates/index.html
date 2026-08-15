@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Fruit Freshness Detector</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🍎 AI Fruit Freshness Detector</h1>
+
+        <p>
+            Vision Transformer based fruit ripeness classification
+        </p>
+    </div>
+
+
+    <div class="card">
+
+        <h2>Upload Fruit Image</h2>
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            <input
+                type="file"
+                name="image"
+                accept=".jpg,.jpeg,.png"
+                required
+            >
+
+            <button type="submit">
+                🔍 Analyze Image
+            </button>
+
+        </form>
+
+
+        {% if error %}
+
+        <div class="error">
+            {{ error }}
+        </div>
+
+        {% endif %}
+
+
+        {% if prediction %}
+
+        <div class="result">
+
+            <h2>Prediction Result</h2>
+
+            <div class="prediction">
+                {{ prediction }}
+            </div>
+
+            <div class="confidence">
+                Confidence:
+                <strong>
+                    {{ "%.2f"|format(confidence) }}%
+                </strong>
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <div class="info">
+
+        <h3>Supported Classes</h3>
+
+        <p>🍏 Fresh</p>
+        <p>🟡 Unripe</p>
+        <p>🍂 Rotten</p>
+
+        <hr>
+
+        <p>
+            Supported fruits:
+            Apple, Banana and Orange
+        </p>
+
+    </div>
+
+
+    <div class="warning">
+
+        ⚠️ This system is an AI visual classification tool.
+        It does not guarantee that food is safe to eat.
+    </div>
+
+</div>
+
+</body>
+</html>
