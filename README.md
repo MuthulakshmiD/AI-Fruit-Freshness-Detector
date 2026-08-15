@@ -1,5 +1,4 @@
-# AI-Fruit-Freshness-Detector# 🍎 AI Fruit Freshness Detector
-
+# AI-Fruit-Freshness-Detector
 An AI-powered web application that uses a Vision Transformer (ViT) and computer vision to classify the ripeness condition of fruit images.
 
 The system allows users to upload an image through a Flask web interface and predicts whether the fruit is **Fresh, Unripe, or Rotten**, along with a confidence score.
